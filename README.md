@@ -1,6 +1,6 @@
 # BRG-27-labs
 
-A file that logs my progress on the various labs for the course
+A file that logs my progress on the lab activities for the course
 
 ## Lab 1a
 Objectives:
@@ -32,6 +32,9 @@ I started to familiar myself with the basic Linux commands by testing them on th
 
 I also test the commands on the WSL to make sure that it is working.
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/fac4c912-fec4-4c3a-be9d-d23610a4d4a0" />
+
+###Part 1
+
 
 
 ## Lab 1b
