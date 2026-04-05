@@ -9,6 +9,7 @@ Objectives:
 - Familiarize with Linux Commands
 
 VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. It took around 30 minutes for the Ubuntu environment to be set up on VirtualBox.
+<img width="1034" height="818" alt="image" src="https://github.com/user-attachments/assets/62fd185c-0626-4000-8aa5-073e7aae5fd7" />
 
 I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Linux and Virtual Platform, I used WSL via Powershell to install Ubuntu.
 ```powershell
