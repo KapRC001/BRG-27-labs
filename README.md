@@ -11,7 +11,9 @@ Objectives:
 VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. It took around 30 minutes for the Ubuntu environment to be set up on VirtualBox.
 
 I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Linux and Virtual Platform, I used WSL via Powershell to install Ubuntu.
-
+```powershell
+# wsl --install -d Ubuntu
+```
 I familiar myself with the Linux commands by testing them on the Virtual Machine.
 
 ## Installation
