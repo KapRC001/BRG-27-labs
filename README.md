@@ -3,9 +3,16 @@
 A file that logs my progress on the various labs for the course
 
 ## Lab 1a
+Objectives:
 - Install a Virtual Machine software and the Ubuntu ISO
+- Install Ubuntu on host with WSL
+- Familiarize with Linux Commands
 
-- Install
+VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. It took around 30 minutes for the Ubuntu environment to be set up on VirtualBox.
+
+I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Linux and Virtual Platform, I used WSL via Powershell to install Ubuntu.
+
+I familiar myself with the Linux commands by testing them on the Virtual Machine.
 
 ## Installation
 
