@@ -11,7 +11,6 @@ Objectives:
 VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. While setting up the VM on Virtual Box, I increased the base memory and CPU to be above the minimal amount. I set the vbox username and password.
 
 <img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/62fd185c-0626-4000-8aa5-073e7aae5fd7" />
-<img width="416" height="106" alt="Screenshot 2026-04-05 090935" src="https://github.com/user-attachments/assets/6aaa60f2-0d90-4ad4-b29f-bf3f6456636b" />
 
 When I started the machine, it took around 30 minutes for the machine to fully set up the environment and reboot. Once it finished rebooting, I sign into the Vbox account.
 
@@ -23,6 +22,9 @@ I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Lin
 
 # wsl --install -d Ubuntu
 ```
+
+<img width="416" height="106" alt="Screenshot 2026-04-05 090935" src="https://github.com/user-attachments/assets/6aaa60f2-0d90-4ad4-b29f-bf3f6456636b" />
+
 I started to familiar myself with the basic Linux commands by testing them on the Virtual Machine.
 
 <img width="500" height="300" alt="VirtualBox_VM_05_04_2026_10_58_58" src="https://github.com/user-attachments/assets/cdc7e76b-d8d0-46b9-b828-d24ea5f91d2e" />
