@@ -1,12 +1,11 @@
-# Project Title
+# BRG-27-labs
 
-A brief description of your project goes here.
+A file that logs my progress on the various labs for the course
 
-## Features
+## Lab 1a
+- Install a Virtual Machine software and the Ubuntu ISO
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Install
 
 ## Installation
 
