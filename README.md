@@ -34,9 +34,9 @@ I also test the commands on the WSL to make sure that it is working.
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/fac4c912-fec4-4c3a-be9d-d23610a4d4a0" />
 
 
-## Lab 1a
+## Lab 1b
 Objectives:
-- Install a Virtual Machine software and the Ubuntu ISO
+- Look into Linux Services, SSH, Firewalls & Compression
 - Install Ubuntu on host with WSL
 - Familiarize with Linux Commands
 
