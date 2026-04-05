@@ -9,6 +9,7 @@ Objectives:
 - Familiarize with Linux Commands
 
 VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. While setting up the VM on Virtual Box, I increased the base memory and CPU to be above the minimal amount. I set the vbox username and password.
+
 <img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/62fd185c-0626-4000-8aa5-073e7aae5fd7" />
 When I started the machine, it took around 30 minutes for the machine to fully set up the environment and reboot. Once it finished rebooting, I sign into the Vbox account.
 <img width="600" height="400" alt="VirtualBox_VM_05_04_2026_10_52_57" src="https://github.com/user-attachments/assets/6b078de2-69c1-40a9-9204-c4099914958e" />
