@@ -559,5 +559,58 @@ sudo certbot --apache
 
 Check HTTPS lock icon and certificate in browser:
 
-<img width="1918" height="990" alt="HTTPS with Lock Icon" src="https://github.com/user-attachments/assets/2e21a726-b429-463d-aee4-147b5cb3f10d" />
+<img width="500" height="300" alt="HTTPS with Lock Icon" src="https://github.com/user-attachments/assets/2e21a726-b429-463d-aee4-147b5cb3f10d" />
 
+Certbot Auto Renewal:
+
+`certbot renew --dry-run`: Tests the renewal process without actually renewing any certificates. It's a safe way to verify that automatic renewal will work when needed.
+```bash
+sudo certbot renew --dry-run
+```
+
+<img width="500" height="300" alt="Certbot Auto-Renewal Dry Run Successful" src="https://github.com/user-attachments/assets/d97e2923-dea1-4e10-9b67-255098d8af11" />
+
+Cron Job or System Timer Check:
+
+**Method 1:** Check systemd Timer
+```bash
+sudo systemctl list-timers | grep certbot
+```
+
+If nothing shows up:
+```bash
+sudo systemctl list-timers --all | grep -i certbot
+```
+
+Verify if timer is enabled:
+```bash
+sudo systemctl status certbot.timer
+```
+
+**Method 2:** Cron Job
+
+Check cron.d directory:
+```bash
+ls -la /etc/cron.d/certbot
+```
+
+View contents in the cron file:
+```bash
+cat /etc/cron.d/certbot
+```
+
+Test Auto-Renewal:
+```bash
+sudo certbot renew --dry-run
+```
+
+<img width="500" height="300" alt="Cron Job or System Timer Check" src="https://github.com/user-attachments/assets/426ce337-b524-4b3f-bbcc-a42403c29084" />
+
+HTTPS Redirect Enabled:
+
+Using curl to Check Redirect
+```bash
+curl -I http://kaprc.duckdns.org
+```
+
+## Lab 3b
