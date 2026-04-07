@@ -302,3 +302,17 @@ Switch user: `su - alice`, `su - bob`, `su - mallory`; use `whoami` and `ls -l /
 <img width="500" height="300" alt="mallory" src="https://github.com/user-attachments/assets/f854c220-d7ca-45f8-839a-c2ab0025ac24" />
 
 ### Lab 2b
+
+### Create an Ubuntu VM on AWS
+
+Create an AWS account. If you have one, log in. 3.	At the top-right, select a Region, Cheapest & safest: US East (N. Virginia). Go to E2 Dashboard and click Lauch Instance.
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/216fe92b-2efd-4df2-a686-4ff42353c9b8" />
+
+Name: aws-webserver
+AMI (OS):
+- Ubuntu Server 20.04 or 22.04
+-	Must show Free tier eligible
+Instance Type:
+- t2.micro or t3.micro
+- Free tier eligible
