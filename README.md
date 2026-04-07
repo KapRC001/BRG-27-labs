@@ -300,3 +300,5 @@ Switch user: `su - alice`, `su - bob`, `su - mallory`; use `whoami` and `ls -l /
 <img width="500" height="300" alt="bob" src="https://github.com/user-attachments/assets/00147261-a409-4a11-b04f-bed4505da825" />
 
 <img width="500" height="300" alt="mallory" src="https://github.com/user-attachments/assets/f854c220-d7ca-45f8-839a-c2ab0025ac24" />
+
+### Lab 2b
