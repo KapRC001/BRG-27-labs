@@ -222,6 +222,7 @@ Install SSH server and Nmap:
 Determine IP using `ip a`
 
 Edit index.html using nano/gedit.
+
 <img width="500" height="300" alt="Modified index html Page" src="https://github.com/user-attachments/assets/5eb70b78-81f4-4f21-a5a0-4cbfaa7ae023" />
 
 Theoretically, if you have someone else doing this and get their ip address with their consent, you can view their Apache. Since I do not have a second person, I'm gonna skip this, my apologies.
