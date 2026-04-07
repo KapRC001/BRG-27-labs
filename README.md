@@ -329,11 +329,11 @@ Key Pair (SSH Access):
 
 Network & Security Group:
 - Create or edit security group:
--     Name: ssh-and-web
--     Inbound rules:
--         SSH (22) → Source: Anywhere
--         HTTP (80) → Source: Anywhere
--         AWS may warn: “open to the world” This is expected for a public web server lab.
+- Name: ssh-and-web
+- Inbound rules:
+  SSH (22) → Source: Anywhere
+  HTTP (80) → Source: Anywhere
+  AWS may warn: “open to the world” This is expected for a public web server lab.
 
 <img width="500" height="300" alt="Security Group Configured" src="https://github.com/user-attachments/assets/8edc0314-4530-472f-bc17-898516e3aaa6" />
 
@@ -343,6 +343,7 @@ Storage:
 Click Launch instance and Start Instance.
 
 <img width="500" height="300" alt="EC2 Instance Launched" src="https://github.com/user-attachments/assets/ee0c0c8f-3ca8-4a35-9f44-a964b97ea3f9" />
+
 
 There are two ways of SSH to the instance.
 #### Option 1:
@@ -363,4 +364,40 @@ ssh -i aws-webserver-key.pem ubuntu@[public-ip]
 
 <img width="500" height="500" alt="SSH Access Successful" src="https://github.com/user-attachments/assets/8fcd6a43-646d-449b-8f70-62c5a9327cae" />
 
+
+### Cloud Web Server Deployment
+#### File Transfer & Permissions:
+- `wget [file url]`: Download remote files to VM.
+- `sudo cp [filename].txt [directory]`: Move them into the web directory.
+- `scp -i key.pem localfile ubuntu@IP:/home/ubuntu/`: Copy files from local to VM.
+- `chmod` or change ownership if facing file access issues.
+
+Run `sudo apt update` and install Apache using `sudo apt install apache2`.
+
+<img width="500" height="300" alt="Apache Installed" src="https://github.com/user-attachments/assets/c3f38b76-7f8a-4542-9966-cf9d4dca439a" />
+
+
+Access the server using its public IP in a browser.
+
+<img width="1248" height="526" alt="Apache Tested" src="https://github.com/user-attachments/assets/3aba3c40-de6d-4544-9aa9-13b4770941aa" />
+
+
+Modify `/var/www/html/index.html` using nano and test the changes live.
+```bash
+sudo nano /var/www/html/index.html
+```
+
+<img width="1280" height="800" alt="Custom index html Edited" src="https://github.com/user-attachments/assets/eeb3ab90-76da-4920-b9b4-5563644d0a00" />
+
+
+Download and copy files to `/var/www/html/` using `wget` and `sudo cp`. For my example:
+```bash
+wget https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+```
+```bash
+sudo cp dummy.pdf /var/www/html/
+```
+Create hyperlinks in `index.html` using anchor `<a>` tags.
+
+Test access using different devices and browsers.
 
