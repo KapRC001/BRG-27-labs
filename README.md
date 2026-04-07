@@ -379,7 +379,7 @@ Run `sudo apt update` and install Apache using `sudo apt install apache2`.
 
 Access the server using its public IP in a browser.
 
-<img width="1248" height="526" alt="Apache Tested" src="https://github.com/user-attachments/assets/3aba3c40-de6d-4544-9aa9-13b4770941aa" />
+<img width="500" height="300" alt="Apache Tested" src="https://github.com/user-attachments/assets/3aba3c40-de6d-4544-9aa9-13b4770941aa" />
 
 
 Modify `/var/www/html/index.html` using nano and test the changes live.
@@ -387,7 +387,7 @@ Modify `/var/www/html/index.html` using nano and test the changes live.
 sudo nano /var/www/html/index.html
 ```
 
-<img width="1280" height="800" alt="Custom index html Edited" src="https://github.com/user-attachments/assets/eeb3ab90-76da-4920-b9b4-5563644d0a00" />
+<img width="500" height="300" alt="Custom index html Edited" src="https://github.com/user-attachments/assets/eeb3ab90-76da-4920-b9b4-5563644d0a00" />
 
 
 Download and copy files to `/var/www/html/` using `wget` and `sudo cp`. For my example:
