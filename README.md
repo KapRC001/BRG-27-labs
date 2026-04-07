@@ -245,7 +245,9 @@ sudo adduser bob
 sudo adduser mallory
 ```
 <img width="500" height="300" alt="user alice created" src="https://github.com/user-attachments/assets/b5971b73-50ad-42ae-9721-e80a071e723f" />
+
 <img width="500" height="300" alt="user bob created" src="https://github.com/user-attachments/assets/48802d56-645e-4bd5-9215-23f0885538d6" />
+
 <img width="500" height="300" alt="user mallory created" src="https://github.com/user-attachments/assets/b95e056b-d08d-420d-adc1-ec2aa3272238" />
 
 
@@ -394,9 +396,14 @@ Download and copy files to `/var/www/html/` using `wget` and `sudo cp`. For my e
 ```bash
 wget https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
 ```
+<img width="500" height="300" alt="External File Downloaded with wget" src="https://github.com/user-attachments/assets/b7924e11-350c-4c11-94cb-df7b1bc31cea" />
+
 ```bash
 sudo cp dummy.pdf /var/www/html/
 ```
+<img width="500" height="300" alt="File Copied to Web Root" src="https://github.com/user-attachments/assets/5109c0fb-8869-46e2-8fdb-a7329e3e6bd4" />
+
+
 Create hyperlinks in `index.html` using anchor `<a>` tags.
 
 Test access using different devices and browsers.
