@@ -2,22 +2,22 @@
 
 A file that logs my progress on the lab activities for the course
 
-## Lab 1a
+## Lab 1a-1
 Objectives:
 - Install a Virtual Machine software and the Ubuntu ISO
 - Install Ubuntu on host with WSL
-- Familiarize with Linux Commands
 
-VirtualBox was used as my Virtual Machine. The ISO used for the VM is Ubuntu-24.04.4-Desktop. While setting up the VM on Virtual Box, I increased the base memory and CPU to be above the minimal amount. I set the vbox username and password.
+VirtualBox as choice for Virtual Machine.
+Installed VirtualBox - https://www.virtualbox.org/
+The Ubuntu ISO used for the VM is Ubuntu-24.04.4-Desktop.
+Ubuntu - http://mirror.aarnet.edu.au/pub/ubuntu/releases/
+GitHub repository set up for documentation.
 
-<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/62fd185c-0626-4000-8aa5-073e7aae5fd7" />
+<img width="500" height="300" alt="New Virtual Machine Created" src="https://github.com/user-attachments/assets/7c1528b6-85c8-456a-80e6-90513e0c1a41" />
+<img width="500" height="300" alt="Ubuntu Running with GUI or CLI Access" src="https://github.com/user-attachments/assets/8067b562-e392-4c7f-91f6-67fe92f427d1" />
 
-When I started the machine, it took around 30 minutes for the machine to fully set up the environment and reboot. Once it finished rebooting, I sign into the Vbox account.
-
-<img width="600" height="400" alt="VirtualBox_VM_05_04_2026_10_52_57" src="https://github.com/user-attachments/assets/6b078de2-69c1-40a9-9204-c4099914958e" />
-<img width="600" height="400" alt="VirtualBox_VM_05_04_2026_10_55_00" src="https://github.com/user-attachments/assets/2de35bb2-c61d-49fb-a850-4857ca286870" />
-
-I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Linux and Virtual Platform, I used WSL via Powershell to install Ubuntu.
+WSL Ubuntu:
+Enabled Windows Subsystem for Linux and Virtual Platform, installed Ubuntu using WSL.
 ```powershell
 
 # wsl --install -d Ubuntu
@@ -25,16 +25,22 @@ I also installed Ubuntu on my local computer. Enabling Windows Subsystem for Lin
 
 <img width="416" height="106" alt="Screenshot 2026-04-05 090935" src="https://github.com/user-attachments/assets/6aaa60f2-0d90-4ad4-b29f-bf3f6456636b" />
 
-I started to familiar myself with the basic Linux commands by testing them on the Virtual Machine.
+## Lab 1a-2
+Objectives:
+- Understand the Ubuntu desktop and basic command-line interface (CLI).
+- Use basic terminal commands for navigation, file handling, and user management.
+- Explore system information, process monitoring, and networking tools.
+- Understand software installation via GUI, APT, and source compilation.
+- Compare public/private IPs and experiment with host configuration.
+- Develop beginner C program and compile using GCC.
 
-<img width="500" height="300" alt="VirtualBox_VM_05_04_2026_10_58_58" src="https://github.com/user-attachments/assets/cdc7e76b-d8d0-46b9-b828-d24ea5f91d2e" />
-<img width="500" height="300" alt="VirtualBox_VM_05_04_2026_11_02_02" src="https://github.com/user-attachments/assets/e3f9459e-9b27-4481-a4b9-f73ed5f4e030" />
+Part 1: Ubuntu Desktop GUI Familiarisation
+Check internet using FireFox
 
-I also test the commands on the WSL to make sure that it is working.
-<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/fac4c912-fec4-4c3a-be9d-d23610a4d4a0" />
+<img width="500" height="300" alt="Firefox opened and working" src="https://github.com/user-attachments/assets/3418f328-6e0a-4d60-974c-eeb9081c636d" />
 
-###Part 1
 
+### Test
 
 
 ## Lab 1b
