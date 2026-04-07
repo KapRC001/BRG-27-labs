@@ -35,28 +35,40 @@ Enabled Windows Subsystem for Linux and Virtual Platform, installed Ubuntu using
 
 ## Linux Commands
 ### Process Monitoring
-ps -e: Shows a snapshot of all running processes in the system
-top: Displays real-time system activity like CPU usage, Memory Usage, and Running processes
+**ps -e**: Shows a snapshot of all running processes in the system
+**top**: Displays real-time system activity like CPU usage, Memory Usage, and Running processes
 ### File & Directory Listing
-ls: Lists files and folders in the current directory.
-  ls -la: Shows all files, including hidden ones.
-  ls -alt: Lists all files sorted by last modified time.
-  ls -lah: Same as -la but with human-readable sizes.
+**ls**: Lists files and folders in the current directory.
+  **ls -la**: Shows all files, including hidden ones.
+  **ls -alt**: Lists all files sorted by last modified time.
+  **ls -lah**: Same as -la but with human-readable sizes.
 ### File Creation, Editing & Viewing
-touch: Creates an empty file. If file exists, updates its timestamp.
+**touch**: Creates an empty file. If file exists, updates its timestamp.
 
 ```bash
 touch [filename].txt
 ```
 
-gedit: Opens a graphical text editor (GUI).
+**gedit**: Opens a graphical text editor (GUI).
 
 ```bash
 gedit [filename].txt
 ```
 
-nano: Opens a terminal-based text editor.
+**nano**: Opens a terminal-based text editor.
 
 ```bash
 nano [filename].txt
+```
+
+**cat**: Displays file content in the terminal.
+
+```bash
+cat [filename].txt
+```
+
+**less**: Views file content one page at a time. Better than cat for large files.
+
+```bash
+less [filename].txt
 ```
