@@ -361,6 +361,6 @@ chmod 400 aws-webserver-key.pem
 ssh -i aws-webserver-key.pem ubuntu@[public-ip]
 ```
 
-<img width="500" height="300" alt="SSH Access Successful" src="https://github.com/user-attachments/assets/8fcd6a43-646d-449b-8f70-62c5a9327cae" />
+<img width="500" height="500" alt="SSH Access Successful" src="https://github.com/user-attachments/assets/8fcd6a43-646d-449b-8f70-62c5a9327cae" />
 
 
