@@ -37,7 +37,7 @@ Enabled Windows Subsystem for Linux and Virtual Platform, installed Ubuntu using
 ## Linux Commands
 
 ### Basic
-**pwd**: Show current directory
+`pwd`: Show current directory
 
 **cd [directory]**: Change directory
 
