@@ -283,5 +283,20 @@ sudo usermod -aG sharedgroup alice
 sudo usermod -aG sharedgroup bob
 ```
 
+Set directory permissions, Override Bob's rights, and Remove Mallory from any group with access.
+```bash
+sudo chmod -R 770 /home/shared
+```
 
+<img width="500" height="300" alt="chmod" src="https://github.com/user-attachments/assets/ca50fab2-ceb6-4d23-93de-2f6e5d12ee92" />
 
+```
+sudo chmod 750 /home/shared/*
+```
+Switch user: `su - alice`, `su - bob`, `su - mallory`; use `whoami` and `ls -l /home/shared` to verify access:
+
+<img width="500" height="300" alt="alice" src="https://github.com/user-attachments/assets/7fdd6f5a-2530-405f-a651-5b33fe871a0d" />
+
+<img width="500" height="300" alt="bob" src="https://github.com/user-attachments/assets/00147261-a409-4a11-b04f-bed4505da825" />
+
+<img width="500" height="300" alt="mallory" src="https://github.com/user-attachments/assets/f854c220-d7ca-45f8-839a-c2ab0025ac24" />
