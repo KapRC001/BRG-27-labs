@@ -392,7 +392,7 @@ sudo nano /var/www/html/index.html
 <img width="500" height="300" alt="Custom index html Edited" src="https://github.com/user-attachments/assets/eeb3ab90-76da-4920-b9b4-5563644d0a00" />
 
 
-Download and copy files to `/var/www/html/` using `wget` and `sudo cp`. For my example:
+#### Download and copy files to `/var/www/html/` using `wget` and `sudo cp`. For my example:
 ```bash
 wget https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
 ```
@@ -404,7 +404,27 @@ sudo cp dummy.pdf /var/www/html/
 <img width="500" height="300" alt="File Copied to Web Root" src="https://github.com/user-attachments/assets/5109c0fb-8869-46e2-8fdb-a7329e3e6bd4" />
 
 
-Create hyperlinks in `index.html` using anchor `<a>` tags.
+#### Create hyperlinks in `index.html` using anchor `<a>` tags:
+```bash
+sudo nano /var/www/html/index.html
+```
+Add the following:
 
-Test access using different devices and browsers.
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/d8fcfc89-fa3d-4237-91dc-4dd6589ebabd" />
+
+Save and exit:
+- Press Ctrl + O (WriteOut)
+- Press Enter (confirm filename)
+- Press Ctrl + X (Exit)
+
+Go back and check on the changes made, there should be button called "Click me" that will send you to the linked pdf.
+
+<img width="500" height="300" alt="Link Inserted in HTML Page" src="https://github.com/user-attachments/assets/4dc30c51-ccc1-4917-845c-dad2eb59d501" />
+
+
+#### Test access using different devices and browsers:
+This is an image of accessing the server with another computer
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/6e3d65a0-91fb-40ca-9781-29547bce1c65" />
+
 
