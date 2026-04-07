@@ -134,3 +134,153 @@ Don’t:
 - Run unnecessary commands with sudo
 - Trust unknown commands with elevated privileges
 
+### Network Configuration and DNS
+`ip a`: Displays all network interfaces and their IP addresses.
+
+`ping [ipaddress/domainname]`: Tests network connectivity by sending packets to a target.
+
+<img width="500" height="300" alt="ip a and ping" src="https://github.com/user-attachments/assets/7c5ef132-b274-454c-9089-82c9c807d034" />
+
+
+`/etc/hosts`: A plain text file to map IP addresses to hostnames or domain names.
+
+`nslookup [ipaddress/domainname]`: Queries DNS servers for domain.
+
+`whois [ipaddress/domainname]`: Shows domain registration details(Owner, Registrar, Creation date).
+
+### System and Hardware Info
+`lsusb`: Lists all USB devices (keyboard, mouse, flash drive).
+
+`lspci`: Lists PCI hardware(GPU, Network card, Sound card).
+
+`/proc/cpuinfo`: A text file that shows detailed CPU information.
+
+### Software Installation Methods
+Install with .deb file (e.g Google Chrome)
+
+<img width="500" height="300" alt="Binary Download" src="https://github.com/user-attachments/assets/a925dd6d-90e1-4e40-b69d-4f00f80c6e7f" />
+
+`sudo apt update`: Refreshes list of available packages from repositories
+
+`sudo apt upgrade`: Installs latest updates for installed software
+
+`sudo apt install [package]`: Install a specific package
+
+`sudo apt search [package]`: Find any available packages related to the keyword
+
+`/etc/apt/sources.list`: A text file that lists software repositories
+
+### Compiling from Source 
+Install build tools: 
+
+```bash
+sudo apt install build-essential
+```
+
+Create the Source Code File (hello_world.c):
+
+```bash
+nano hello_world.c
+```
+
+Type inside the file. For example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    printf("This program was compiled on Ubuntu using GCC.\n");
+    return 0;
+}
+```
+
+Save and exit:
+- Press Ctrl + O (WriteOut)
+- Press Enter (confirm filename)
+- Press Ctrl + X (Exit)
+
+## Lab 1b
+### Linux Services, SSH, Firewalls & Compression
+#### Activity 1
+Install Apache2:
+```bash
+sudo apt install apache2
+```
+
+<img width="500" height="300" alt="Apache2 installation" src="https://github.com/user-attachments/assets/9fa24345-9167-4316-90c4-d04615773bae" />
+
+
+Go to FireFox and run 127.0.0.1
+
+<img width="500" height="300" alt="Apache2 Running" src="https://github.com/user-attachments/assets/ffca940f-f4f1-44a2-90c2-4bbdaac4de23" />
+
+#### Activity 2
+Install SSH server and Nmap: 
+`sudo apt install openssh-server nmap`
+
+Determine IP using `ip a`
+
+Edit index.html using nano/gedit.
+<img width="500" height="300" alt="Modified index html Page" src="https://github.com/user-attachments/assets/5eb70b78-81f4-4f21-a5a0-4cbfaa7ae023" />
+
+Theoretically, if you have someone else doing this and get their ip address with their consent, you can view their Apache. Since I do not have a second person, I'm gonna skip this, my apologies.
+
+### Linux File Permissions and Group Access Control
+Command Reference:
+- ls -l
+- groupadd, delgroup
+- adduser, deluser
+- chown, chgrp, chmod [-R]
+- su [user] -s /bin/bash
+- whoami
+- less /etc/passwd, less /etc/group
+- rm -r /home/shared
+
+Create 3 users:
+```bash
+sudo adduser alice
+sudo adduser bob
+sudo adduser mallory
+```
+<img width="500" height="300" alt="user alice created" src="https://github.com/user-attachments/assets/b5971b73-50ad-42ae-9721-e80a071e723f" />
+<img width="500" height="300" alt="user bob created" src="https://github.com/user-attachments/assets/48802d56-645e-4bd5-9215-23f0885538d6" />
+<img width="500" height="300" alt="user mallory created" src="https://github.com/user-attachments/assets/b95e056b-d08d-420d-adc1-ec2aa3272238" />
+
+
+Create Group:
+```bash
+sudo groupadd sharedgroup
+```
+
+<img width="500" height="300" alt="Group Created and Configured (sharedgroup at bottom)" src="https://github.com/user-attachments/assets/73844fb9-fefb-4361-b7f0-2741078d6f14" />
+
+
+Create directory and create ten files inside it:
+```bash
+sudo mkdir /home/shared
+```
+
+<img width="500" height="300" alt="&#39;shared&#39; Directory Created" src="https://github.com/user-attachments/assets/48a6b0da-c1a7-41f2-8c08-198b0bb58b8e" />
+
+
+```bash
+sudo touch /home/shared/file{1..10}.txt
+```
+
+<img width="500" height="300" alt="Ten Files created in shared folder" src="https://github.com/user-attachments/assets/a057f103-3191-4dcd-a5d1-430d50a32085" />
+
+Change group ownership and add Alice and Bob to group:
+```bash
+sudo chgrp -R sharedgroup /home/shared
+```
+
+<img width="500" height="300" alt="chgrp" src="https://github.com/user-attachments/assets/58a5df3f-5e27-4f15-b7e4-63e51fd0ce90" />
+
+```bash
+sudo usermod -aG sharedgroup alice
+sudo usermod -aG sharedgroup bob
+```
+
+
+
