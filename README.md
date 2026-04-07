@@ -423,7 +423,7 @@ Go back and check on the changes made, there should be button called "Click me" 
 
 
 #### Test access using different devices and browsers:
-This is an image of accessing the server with another computer
+This is an image of accessing the server with the host computer.
 
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/6e3d65a0-91fb-40ca-9781-29547bce1c65" />
 
@@ -510,3 +510,54 @@ The line `#!/bin/bash` is called a shebang. It tells the operating system which 
 **How can you personalize script output?**
 
 You can personalize script output by using variables, command substitution, user input, and formatted text.
+
+## Lab 3a
+### Domain, DNS and TLS Certificates with Let's Encrypt
+
+Ensure inbound ports 22 (SSH), 80 (HTTP), and 443 (HTTPS) are open:
+- Under EC2 Navigation, go to Security Group.
+- Click on the Security Group ID used for the instance.
+- Click Edit Inbound Rules.
+- Add HTTPS.
+- Click save.
+
+<img width="500" height="300" alt="Screenshot 2026-04-08 022232" src="https://github.com/user-attachments/assets/c28ef43c-ee77-4bf4-bf53-48d8ca258c4d" />
+
+Register a domain. For my example, I signed into DuckDNS using the GitHub account and created a domain name:
+
+<img width="500" height="300" alt="Domain Name Registered" src="https://github.com/user-attachments/assets/87b3965d-4b93-46c4-8b01-c05c6ef44472" />
+
+Create an A record pointing your domain to the public IP of your server:
+
+<img width="500" height="300" alt="Screenshot 2026-04-08 023321" src="https://github.com/user-attachments/assets/4d58756e-f268-4031-9fa9-b2fcdd554923" />
+
+(Note: The webserver keeps giving out new ip addresses every time you start the instance, the one below was the address at that time.)
+
+<img width="500" height="300" alt="A Record Created" src="https://github.com/user-attachments/assets/b9e649dd-8d8e-4c39-9dc8-8bc3c7545549" />
+
+Check the domain:
+
+<img width="500" height="300" alt="Apache Welcome Page via Domain" src="https://github.com/user-attachments/assets/cd9d7c34-4885-4719-bfb4-d91d1cfecd23" />
+
+DNS propagation:
+
+<img width="500" height="300" alt="DNS Test Output" src="https://github.com/user-attachments/assets/652252fd-ac34-4fe1-aadd-76fac4f796f1" />
+
+Install Certbot:
+```bash
+sudo apt install certbot python3-certbot-apache
+```
+
+<img width="500" height="300" alt="Certbot Installed" src="https://github.com/user-attachments/assets/6442469b-562b-4576-af3c-80a24a4f11ea" />
+
+Generate and install the certificate:
+```bash
+sudo certbot --apache
+```
+
+<img width="500" height="300" alt="Certbot Success Message" src="https://github.com/user-attachments/assets/6b344d42-779b-47fd-8207-e0238494c815" />
+
+Check HTTPS lock icon and certificate in browser:
+
+<img width="1918" height="990" alt="HTTPS with Lock Icon" src="https://github.com/user-attachments/assets/2e21a726-b429-463d-aee4-147b5cb3f10d" />
+
