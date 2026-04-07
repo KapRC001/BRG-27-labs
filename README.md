@@ -427,4 +427,72 @@ This is an image of accessing the server with another computer
 
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/6e3d65a0-91fb-40ca-9781-29547bce1c65" />
 
+## Lab 2b
+### Introduction to Bash Scripting & System Automation
+#### Navigating the File System and Managing Files
+```bash
+mkdir LabFiles
+```
+**What command did you use to create a directory?**
+I used the `mkdir` command to make a directory called LabFiles
+
+Create a note.txt:
+```bash
+cat > notes.txt << "EOF"
+This is my lab notes file.
+Created on $(date)
+Topics covered: Linux commands, file manipulation, and directory management.
+EOF
+```
+**How can you view file content without a GUI editor?**
+There are several command-line commands to view file content without opening a GUI editor, such as:
+```bash
+cat note.txt
+```
+
+<img width="500" height="300" alt="Directory and File Operations Completed" src="https://github.com/user-attachments/assets/8c28e409-ae2b-41e0-923b-090bc61854dd" />
+
+
+**What is the difference between cp and mv?**
+The main difference is that `cp` (copy) duplicates a file, leaving the original intact, while `mv` (move) relocates or renames a file, removing it from its original location.
+
+#### Creating and Executing Basic Bash Scripts
+Create a script using a text editor, such as `hello_world.sh`:
+```bash
+nano hello_world.sh
+```
+Type the following content:
+```bash
+#!/bin/bash
+# This is my first bash script
+echo "Hello, World! This is my custom bash script."
+echo "Current date and time: $(date)"
+echo "Running as user: $(whoami)"
+```
+
+Save and exit:
+- Press Ctrl + O (WriteOut)
+- Press Enter (confirm filename)
+- Press Ctrl + X (Exit)
+- 
+<img width="500" height="300" alt="hello_world sh script" src="https://github.com/user-attachments/assets/99419246-e847-44b0-8a12-e2698a0631c5" />
+
+Change Permissions with chmod 777:
+```bash
+chmod 777 hello_world.sh
+```
+
+What chmod 777 means:
+- 7 = Owner: read(4) + write(2) + execute(1) = 7
+- 7 = Group: read(4) + write(2) + execute(1) = 7
+- 7 = Others: read(4) + write(2) + execute(1) = 7
+
+<img width="500" height="300" alt="chmod 777 hello_world sh" src="https://github.com/user-attachments/assets/3b55e1e7-77c3-431c-895c-b14dcbff1061" />
+
+Execute the Script:
+```bash
+./hello_world.sh
+```
+
+<img width="500" height="300" alt="Output of script execution" src="https://github.com/user-attachments/assets/09fc3c49-18e9-48a1-b33c-4420ed4e1e44" />
 
