@@ -39,53 +39,53 @@ Enabled Windows Subsystem for Linux and Virtual Platform, installed Ubuntu using
 ### Basic
 `pwd`: Show current directory
 
-**cd [directory]**: Change directory
+`cd [directory]`: Change directory
 
-**cd ..**: Go up one level
+`cd ..`: Go up one level
 
-**cd ~**: Go to home directory
+`cd ~`: Go to home directory
 
 ### Process Monitoring
-**ps -e**: Shows a snapshot of all running processes in the system
+`ps -e`: Shows a snapshot of all running processes in the system
 
-**top**: Displays real-time system activity like CPU usage, Memory Usage, and Running processes
+`top`: Displays real-time system activity like CPU usage, Memory Usage, and Running processes
 
 ### File & Directory Listing
-**mkdir [directory]**: Create directory
+`mkdir [directory]`: Create directory
 
-**rmdir [directory]**: Remove empty directory
+`rmdir [directory]`: Remove empty directory
 
-**rm [file]** → Delete file
+`rm [file]` → Delete file
 
-**rm -r [directory]** → Delete directory
+`rm -r [directory]` → Delete directory
 
-**ls**: Lists files and folders in the current directory.
+`ls`: Lists files and folders in the current directory.
 
-  **ls -la**: Shows all files, including hidden ones.
+  `ls -la`: Shows all files, including hidden ones.
   
-  **ls -alt**: Lists all files sorted by last modified time.
+  `ls -alt`: Lists all files sorted by last modified time.
   
-  **ls -lah**: Same as -la but with human-readable sizes.
+  `ls -lah`: Same as -la but with human-readable sizes.
   
 ### File Creation, Editing & Viewing
-**touch [filename].txt**: Creates an empty file. If file exists, updates its timestamp.
+`touch [filename].txt`: Creates an empty file. If file exists, updates its timestamp.
 
-**gedit [filename].txt**: Opens a graphical text editor (GUI).
+`gedit [filename].txt`: Opens a graphical text editor (GUI).
 
-**nano [filename].txt**: Opens a terminal-based text editor.
+`nano [filename].txt`: Opens a terminal-based text editor.
 
-**cat [filename].txt**: Displays file content in the terminal.
+`cat [filename].txt`: Displays file content in the terminal.
 
-**less [filename].txt**: Views file content one page at a time. Better than cat for large files.
+`less [filename].txt`: Views file content one page at a time. Better than cat for large files.
 
 ### File Management
-**cp**: Copies files or directories.
+`cp`: Copies files or directories.
 
 ```bash
 cp [original].txt [copied].txt
 ```
 
-**mv**: Moves or renames files.
+`mv`: Moves or renames files.
 
 For moving
 
@@ -99,18 +99,18 @@ For renaming
 mv [filename].txt [newfilename].txt
 ```
 ### System Information
-**uname -a**: Displays system/kernel information
+`uname -a`: Displays system/kernel information
 
-**lsb_release -a**: Shows Linux distribution details
+`lsb_release -a`: Shows Linux distribution details
 
-**hostnamectl**: Displays and manages Hostname, OS info, Kernel version, and System architecture
+`hostnamectl`: Displays and manages Hostname, OS info, Kernel version, and System architecture
 
 ### Super User and Permissions
-**whoami**: Shows the current logged-in user.
+`whoami`: Shows the current logged-in user.
 
-**sudo whoami**: Runs the command as the root (superuser).
+`sudo whoami`: Runs the command as the root (superuser).
 
-**adduser [user]**: Create a new user account.
+`adduser [user]`: Create a new user account.
 
 However, permission would be denied as creating users requires administrative privileges. So, do this instead.
 ```bash
