@@ -310,9 +310,57 @@ Create an AWS account. If you have one, log in. 3.	At the top-right, select a Re
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/216fe92b-2efd-4df2-a686-4ff42353c9b8" />
 
 Name: aws-webserver
+
 AMI (OS):
 - Ubuntu Server 20.04 or 22.04
 -	Must show Free tier eligible
+
 Instance Type:
 - t2.micro or t3.micro
 - Free tier eligible
+
+Key Pair (SSH Access):
+- Click Create new key pair
+- Name: aws-webserver-key
+- Type: RSA
+- Format: .pem
+- Download and save safely
+- If you lose this file, you lose access to the VM.
+
+Network & Security Group:
+- Create or edit security group:
+-     Name: ssh-and-web
+-     Inbound rules:
+-         SSH (22) → Source: Anywhere
+-         HTTP (80) → Source: Anywhere
+-         AWS may warn: “open to the world” This is expected for a public web server lab.
+
+<img width="500" height="300" alt="Security Group Configured" src="https://github.com/user-attachments/assets/8edc0314-4530-472f-bc17-898516e3aaa6" />
+
+Storage:
+- Leave default: 8 GB gp2/gp3
+
+Click Launch instance and Start Instance.
+
+<img width="500" height="300" alt="EC2 Instance Launched" src="https://github.com/user-attachments/assets/ee0c0c8f-3ca8-4a35-9f44-a964b97ea3f9" />
+
+There are two ways of SSH to the instance.
+#### Option 1:
+- Select the instance and click the connect button
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/0778700c-be5b-4484-8238-3f4cd3359afb" />
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/f3928273-2293-4b6e-86c8-4b536b9483e5" />
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/beddc538-348f-4971-abb2-c18a193a9d0c" />
+
+#### Option 2:
+Copy the Public IPv4 address or Public DNS name.
+```bash
+chmod 400 aws-webserver-key.pem
+ssh -i aws-webserver-key.pem ubuntu@[public-ip]
+```
+
+<img width="500" height="300" alt="SSH Access Successful" src="https://github.com/user-attachments/assets/8fcd6a43-646d-449b-8f70-62c5a9327cae" />
+
+
