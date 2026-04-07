@@ -434,6 +434,7 @@ This is an image of accessing the server with another computer
 mkdir LabFiles
 ```
 **What command did you use to create a directory?**
+
 I used the `mkdir` command to make a directory called LabFiles
 
 Create a note.txt:
@@ -445,6 +446,7 @@ Topics covered: Linux commands, file manipulation, and directory management.
 EOF
 ```
 **How can you view file content without a GUI editor?**
+
 There are several command-line commands to view file content without opening a GUI editor, such as:
 ```bash
 cat note.txt
@@ -454,6 +456,7 @@ cat note.txt
 
 
 **What is the difference between cp and mv?**
+
 The main difference is that `cp` (copy) duplicates a file, leaving the original intact, while `mv` (move) relocates or renames a file, removing it from its original location.
 
 #### Creating and Executing Basic Bash Scripts
@@ -474,15 +477,15 @@ Save and exit:
 - Press Ctrl + O (WriteOut)
 - Press Enter (confirm filename)
 - Press Ctrl + X (Exit)
-- 
+
 <img width="500" height="300" alt="hello_world sh script" src="https://github.com/user-attachments/assets/99419246-e847-44b0-8a12-e2698a0631c5" />
 
-Change Permissions with chmod 777:
+Change Permissions with `chmod 777`:
 ```bash
 chmod 777 hello_world.sh
 ```
 
-What chmod 777 means:
+What `chmod 777` means:
 - 7 = Owner: read(4) + write(2) + execute(1) = 7
 - 7 = Group: read(4) + write(2) + execute(1) = 7
 - 7 = Others: read(4) + write(2) + execute(1) = 7
@@ -496,3 +499,14 @@ Execute the Script:
 
 <img width="500" height="300" alt="Output of script execution" src="https://github.com/user-attachments/assets/09fc3c49-18e9-48a1-b33c-4420ed4e1e44" />
 
+**What is chmod +x for?**
+
+`chmod +x` is used to add execute permission to a file. The `+x` flag adds (+) execute (x) permission for the owner, group, and others.
+
+**Why is #!/bin/bash used?**
+
+The line `#!/bin/bash` is called a shebang. It tells the operating system which interpreter to use when executing the script.
+
+**How can you personalize script output?**
+
+You can personalize script output by using variables, command substitution, user input, and formatted text.
