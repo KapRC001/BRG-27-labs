@@ -614,3 +614,334 @@ curl -I http://kaprc.duckdns.org
 ```
 
 ## Lab 3b
+### Bash Backup Scripting, Cron Jobs & Cloud Export
+
+**echo and variables**
+```bash
+name="Alice"
+age=25
+location="Singapore"
+
+echo "My name is $name"
+echo "I am $age years old"
+echo "I live in $location"
+
+greeting="Welcome, $name!"
+echo "$greeting"
+
+echo "In 5 years, I will be $((age + 5)) years old"
+```
+
+<img width="500" height="400" alt="echo and variables" src="https://github.com/user-attachments/assets/0c25464e-ff78-4ddb-bdca-2ed1b9a94908" />
+
+**Arithmetic with (( ))**
+
+```bash
+# Basic arithmetic
+a=10
+b=5
+
+echo a = $a, b = $b
+
+# Addition
+echo a + b = $((a + b))
+
+# Subtraction
+echo a - b = $((a - b))
+
+# Multiplication
+echo a  b = $((a  b))
+
+# Division
+echo a  b = $((a  b))
+
+# Modulo (remainder)
+echo a % b = $((a % b))
+
+# Increment and decrement
+counter=1
+echo Initial counter $counter
+((counter++))
+echo After counter++ $counter
+((counter--))
+echo After counter-- $counter
+
+# Compound operations
+((a += 5))
+echo a += 5 - a = $a
+
+((b = 2))
+echo b = 2 - b = $b
+
+```<img width="652" height="698" alt="Arithmetic with (( ))" src="https://github.com/user-attachments/assets/9d293e4b-e8a1-44dc-a17b-c3d405eacade" />
+
+#### Basic For Loop Summation
+
+```bash
+# Sum 1 to 10 using for loop
+sum=0
+for i in {1..10}
+do
+    echo Adding $i to sum (current sum $sum)
+    ((sum += i))
+done
+echo =========================================
+echo Final sum of 1 to 10 is $sum
+```
+
+<img width="500" height="300" alt="Basic For Loop Summation" src="https://github.com/user-attachments/assets/7f335855-e208-4dbb-8805-fdfb9f181117" />
+
+**Create test files and directories in `/home/ubuntu/Documents`:**
+```bash
+cd /home/ubuntu/Documents
+
+mkdir -p project1/src
+mkdir -p project1/docs
+mkdir -p project2/data
+mkdir -p project2/backup
+mkdir -p archive/2024
+mkdir -p archive/2025
+
+touch project1/README.md
+touch project1/src/main.c
+touch project1/src/helper.c
+touch project1/docs/guide.txt
+touch project2/data/dataset.csv
+touch project2/backup/old_data.bak
+touch archive/2024/report.pdf
+touch archive/2025/notes.txt
+
+echo "Hello World" > project1/README.md
+```
+
+**Write a Bash script to recursively copy `/Documents` to `/backup`:**
+Create the script
+```bash
+nano /home/ubuntu/testscript
+```
+Input the content:
+```bash
+#!/bin/bash
+# testscript - Recursive backup script
+# This script copies /home/ubuntu/Documents to /home/ubuntu/backup/
+
+echo "        BACKUP SCRIPT EXECUTED           "
+echo "Date: $(date)"
+echo "User: $(whoami)"
+echo ""
+
+# Define source and destination
+SOURCE="/home/ubuntu/Documents"
+DESTINATION="/home/ubuntu/backup"
+
+# Check if source directory exists
+if [ ! -d "$SOURCE" ]; then
+    echo "ERROR: Source directory $SOURCE does not exist!"
+    echo "Please create it first with: mkdir -p $SOURCE"
+    exit 1
+fi
+
+# Create destination directory if it doesn't exist
+if [ ! -d "$DESTINATION" ]; then
+    echo "Creating destination directory: $DESTINATION"
+    mkdir -p "$DESTINATION"
+fi
+
+# Perform recursive copy
+echo "Starting recursive copy..."
+echo "Copying from: $SOURCE"
+echo "Copying to:   $DESTINATION"
+echo ""
+
+cp -rv "$SOURCE/"* "$DESTINATION/" 2>/dev/null
+
+# Check if copy was successful
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "BACKUP COMPLETED SUCCESSFULLY!"
+    echo ""
+    echo "Files and folders in backup directory:"
+    ls -la "$DESTINATION"
+else
+    echo ""
+    echo "ERROR: Backup failed!"
+    exit 1
+fi
+
+echo ""
+echo "Script finished at: $(date)"
+```
+
+Save and exit:
+- Ctrl + O (WriteOut)
+- Enter (confirm)
+- Ctrl + X (Exit)
+
+Set Execute Permission:
+```bash
+chmod 777 /home/ubuntu/testscript
+```
+
+Run the script:
+```bash
+/home/ubuntu/testscript
+```
+
+<img width="500" height="300" alt="Screenshot 2026-04-08 034229" src="https://github.com/user-attachments/assets/a292ac34-2666-4887-9c40-c7d8fb44a2ab" />
+
+Verify backup:
+```bash
+ls -la /home/ubuntu/backup/
+```
+
+<img width="500" height="300" alt="Screenshot 2026-04-08 034531" src="https://github.com/user-attachments/assets/dd5c0cd2-d5dd-4430-99c4-949c95a176ad" />
+
+
+**Script Moved to /usr/bin and Tested**
+
+Move Script to `/usr/bin/`:
+```bash
+sudo mv ~/testscript /usr/bin/
+```
+
+Change Ownership with `sudo chown`:
+```bash
+sudo chown root:root /usr/bin/testscript
+```
+
+Set secure permissions:
+```bash
+sudo chmod 755 /usr/bin/testscript
+```
+
+Test Script from Any Directory. For this case, I decided to test from the tmp directory:
+```bash
+cd /tmp
+testscript
+```
+
+**Zip backup with filename based on current date using `date` and `zip`.**
+
+Update script:
+```bash
+sudo nano /usr/bin/testscript
+```
+Replace with this:
+```bash
+#!/bin/bash
+# testscript - Backup and Archive Script
+# Creates a dated ZIP archive of the Documents directory
+
+echo "     BACKUP & ARCHIVE SCRIPT EXECUTED    "
+echo "Date: $(date)"
+echo "User: $(whoami)"
+echo ""
+
+# Define source and destination
+SOURCE="/home/ubuntu/Documents"
+BACKUP_DIR="/home/ubuntu/backup"
+DEST="/home/ubuntu"  # Where the ZIP file will be saved
+
+# Get current date for filename
+now=$(date +"%d_%m_%y")
+archive_name="backup_$now.zip"
+archive_path="$DEST/$archive_name"
+
+echo "Archive will be created as: $archive_name"
+echo ""
+
+# Check if source directory exists
+if [ ! -d "$SOURCE" ]; then
+    echo "ERROR: Source directory $SOURCE does not exist!"
+    echo "Please create it first with: mkdir -p $SOURCE"
+    exit 1
+fi
+
+# Create backup directory if it doesn't exist
+if [ ! -d "$BACKUP_DIR" ]; then
+    echo "Creating backup directory: $BACKUP_DIR"
+    mkdir -p "$BACKUP_DIR"
+fi
+
+# Step 1: Recursive copy to backup directory
+echo "▶ Step 1: Copying $SOURCE to $BACKUP_DIR"
+cp -r "$SOURCE/"* "$BACKUP_DIR/" 2>/dev/null
+
+if [ $? -ne 0 ]; then
+    echo "   No files to copy or source is empty."
+fi
+
+echo "   Copy complete."
+echo ""
+
+# Step 2: Create dated ZIP archive
+echo "▶ Step 2: Creating ZIP archive of backup directory"
+echo "   Source: $BACKUP_DIR"
+echo "   Destination: $archive_path"
+
+# Remove old archive if it exists
+if [ -f "$archive_path" ]; then
+    echo "   Removing old archive: $archive_name"
+    rm "$archive_path"
+fi
+
+# Create the zip archive
+zip -r "$archive_path" "$BACKUP_DIR"
+
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "   ZIP archive created successfully!"
+else
+    echo ""
+    echo "   ERROR: Failed to create ZIP archive!"
+    exit 1
+fi
+
+# Step 3: Show the created archive
+echo ""
+echo "ARCHIVE COMPLETED SUCCESSFULLY!"
+echo ""
+echo "Created archive:"
+ls -la "$archive_path"
+echo ""
+echo "Archive contents preview:"
+unzip -l "$archive_path" | head -20
+
+echo ""
+echo "Script finished at: $(date)"
+```
+
+At first, it did not work as zip was not installed beforehand.
+To resolve it:
+```bash
+sudo apt update
+sudo apt install zip -y
+```
+
+Run script:
+```bash
+testscript
+```
+
+<img width="500" height="300" alt="Screenshot 2026-04-08 040314" src="https://github.com/user-attachments/assets/b1607be6-f44f-4f03-85b0-b0ba1de07867" />
+
+Verify the file name:
+
+<img width="500" height="93" alt="Screenshot 2026-04-08 040405" src="https://github.com/user-attachments/assets/15ff4970-478f-49dc-8052-618e8e55e199" />
+
+
+**Cronjob Set Up for Hourly Backup**
+
+ Edit `/etc/crontab`:
+ ```bash
+sudo nano /etc/crontab
+```
+
+Add this at the end:
+```bash
+# Hourly backup script (at 9 minutes past each hour)
+9 * * * * ubuntu /usr/bin/testscript
+```
+
+<img width="500" height="300" alt="Cronjob Set Up for Hourly Backup" src="https://github.com/user-attachments/assets/eec6d98c-9e51-4001-8317-0ae27628cebf" />
+
