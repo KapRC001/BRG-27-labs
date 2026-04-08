@@ -303,6 +303,17 @@ Switch user: `su - alice`, `su - bob`, `su - mallory`; use `whoami` and `ls -l /
 
 <img width="500" height="300" alt="mallory" src="https://github.com/user-attachments/assets/f854c220-d7ca-45f8-839a-c2ab0025ac24" />
 
+### File Search, Analysis & Archiving in Linux
+ `find . -name "*.txt"`: Find all .txt files in the current directory and subdirectories.
+ `grep`: Searches for patterns in text files.
+ `du -a`: Estimates file and directory space usage.
+ 
+ <img width="500" height="300" alt="du -a" src="https://github.com/user-attachments/assets/7d9571f6-0259-4808-b307-4f12b36daac9" />
+
+ `sed -e 's/\s/\n/g'`: Replace all whitespace with newlines.
+ 
+<img width="500" height="300" alt="sed" src="https://github.com/user-attachments/assets/02855960-a08f-4a95-925a-9671579b1c61" />
+
 ## Lab 2b
 
 ### Create an Ubuntu VM on AWS
@@ -944,4 +955,56 @@ Add this at the end:
 ```
 
 <img width="500" height="300" alt="Cronjob Set Up for Hourly Backup" src="https://github.com/user-attachments/assets/eec6d98c-9e51-4001-8317-0ae27628cebf" />
+
+## Lab 4
+### Additional Server Service
+
+For my chosen additional server service, it was Docker.
+
+**Step 1: Remove old Docker versions (if any)**
+```bash
+sudo apt remove -y docker docker-engine docker.io containerd runc
+```
+
+**Step 2: Install Docker using Ubuntu repository**
+```bash
+sudo apt install -y docker.io
+```
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_10_36_51" src="https://github.com/user-attachments/assets/7bc1eec8-622f-43b8-89a2-798336306771" />
+
+**Step 3: Start and enable Docker service**
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_10_39_35" src="https://github.com/user-attachments/assets/f6229f1c-8a4a-44a6-965b-c8d52f5c45ff" />
+
+**Step 4: Verify Docker installation**
+```bash
+docker --version
+sudo docker run hello-world
+```
+
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_10_41_36" src="https://github.com/user-attachments/assets/4af62baf-4b88-4f82-a957-059fab4155bc" />
+
+**Run a Web Server Container**
+
+Run Nginx web server on port 8080:
+```bash
+docker run -d --name webserver -p 8080:80 nginx
+```
+
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_11_02_58" src="https://github.com/user-attachments/assets/1222d0b0-4d51-4863-bb98-599c7fd45248" />
+
+Verify if it is running:
+```bash
+docker ps
+curl localhost:8080
+```
+
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_11_05_19" src="https://github.com/user-attachments/assets/9e5cc285-85b5-4050-8acc-608e6d2e3c75" />
+
+
+<img width="500" height="300" alt="VirtualBox_VM_08_04_2026_12_05_18" src="https://github.com/user-attachments/assets/e00ef40b-2af6-4245-8c82-eeff6709cbab" />
 
