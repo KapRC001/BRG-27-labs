@@ -1,0 +1,9 @@
+Working through the Linux networking, SSH, and file compression tasks gave me practical insight into how systems communicate and share data securely.
+
+Networking with Linux was eye-opening. Commands like ip a, ping, and nmap transformed abstract concepts like IP addresses and open ports into tangible, testable realities. Setting up UFW and watching a partner's nmap scan change from open to closed after removing Apache made firewalls feel less like theory and more like a direct tool for controlling access. The collaborative aspect—sharing IPs and accessing each other's web servers—made the client-server model immediately understandable.
+
+SSH and scp demonstrated the power of secure, remote operations. Copying files and entire directories between machines with a single command felt efficient and polished. The -r flag for recursive directory copying was a small but crucial detail that saved significant time. Learning to troubleshoot connection issues (firewall rules, SSH service status) was as valuable as the successful transfers themselves.
+
+File compression with tar and bzip2 showed the practical side of storage efficiency. Watching a multi-kilobyte archive shrink by 70-80% with bzip2 made the value of compression algorithms immediately obvious. The round-trip from tar cf → bzip2 → bunzip2 → tar -xvf felt like completing a reliable, repeatable workflow.
+
+As a future developer, these skills feel foundational. Understanding how to secure services with UFW, transfer files with scp, and compress data efficiently are tasks I will use regularly, whether deploying applications to a server or sharing logs with a teammate. The command line, while initially intimidating, proved faster and more transparent than any GUI alternative for these tasks.

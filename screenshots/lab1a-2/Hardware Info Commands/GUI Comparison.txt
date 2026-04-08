@@ -1,0 +1,5 @@
+The terminal commands (lsusb, lspci, /proc/cpuinfo) provide detailed, low-level hardware information directly from the kernel and system buses. For example, /proc/cpuinfo shows every CPU flag and cache detail, while lspci reveals exact device IDs and PCI bus addresses.
+
+In contrast, the GUI "About This Computer" displays a user-friendly summary of the most relevant specifications (CPU model, RAM, disk space, graphics). The GUI hides technical details like PCI bus addresses, USB vendor IDs, CPU flags, and cache sizes, making it more accessible for everyday users but less useful for debugging or system administration.
+
+Both sources agree on core information (e.g., CPU model "Intel Core i7-8700K", 4GB RAM), but the terminal provides granular detail while the GUI offers simplified presentation.

@@ -1,0 +1,1 @@
+ip a shows my local/internal IP address (192.168.x.x), which is assigned by my router and only valid on my local network. The whatismyipaddress.com result shows my public/external IP address, which is assigned by my ISP and visible to the entire internet. My router uses NAT (Network Address Translation) to allow multiple local devices to share one public IP.
