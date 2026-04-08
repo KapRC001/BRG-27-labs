@@ -200,6 +200,15 @@ Save and exit:
 - Press Enter (confirm filename)
 - Press Ctrl + X (Exit)
 
+Compile with GCC:
+```bash
+gcc hello_world.c -o hello_world_executable
+```
+
+Run executable:
+```bash
+./hello_world_executable
+```
 ## Lab 1b
 ### Linux Services, SSH, Firewalls & Compression
 #### Activity 1
